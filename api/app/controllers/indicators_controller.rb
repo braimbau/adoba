@@ -28,3 +28,4 @@ class IndicatorsController < ApplicationController
   end
 
 end
+ 

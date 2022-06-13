@@ -6,6 +6,7 @@ import './../styles/manager.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FixedField from "./fixedField";
+import History from '../history'
 
 function Manager() {
   const [name, setName] = useState('');
@@ -34,11 +35,7 @@ function Manager() {
     }
 
     //remove from front
-    console.log('mdr')
-    console.log(id)
     const newIndicators = indicators.filter((indicator) => {return indicator.id != id});
-    console.log('new indicators:');
-    console.log(indicators);
     setIndicators(newIndicators);
   }
 
@@ -72,19 +69,21 @@ function Manager() {
   }
 
   return (
-    <div className="Card">
-
-      <FixedField name={'name'}/>
-      <FixedField name= {'date'}/>
-      {renderIndicators(indicators)}
-      <div className="Field">        
-        <input className="IndicatorInput" placeholder="name" onChange={(e) => {setName(e.target.value)}}></input>
-        <input className="IndicatorInput" placeholder="unit" onChange={(e) => {setUnit(e.target.value)}}></input>
-        <div className={`IndicatorMandatory ${(mandatory == true ? 'Red' : 'Grey')}`} onClick={() => {console.log('trigger');setMandatory(prev => !prev); console.log(mandatory)}} >*</div>
-        <div className="SubmitButton" onClick={onSubmit}>
-          <AddCircleIcon></AddCircleIcon>
+    <div>
+      <div className="Card">
+        <FixedField name={'name'}/>
+        <FixedField name= {'date'}/>
+        {renderIndicators(indicators)}
+        <div className="Field">        
+          <input className="IndicatorInput" placeholder="name" onChange={(e) => {setName(e.target.value)}}></input>
+          <input className="IndicatorInput" placeholder="unit" onChange={(e) => {setUnit(e.target.value)}}></input>
+          <div className={`IndicatorMandatory ${(mandatory == true ? 'Red' : 'Grey')}`} onClick={() => {setMandatory(prev => !prev)}} >*</div>
+          <div className="SubmitButton" onClick={onSubmit}>
+            <AddCircleIcon></AddCircleIcon>
+          </div>
         </div>
       </div>
+      <History></History>
     </div>
   );
 }

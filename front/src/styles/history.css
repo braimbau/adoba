@@ -1,0 +1,28 @@
+.Card {
+    background-color: seagreen;
+    border-radius: 16px;
+    margin: 8px;
+    padding: 8px;
+    width: 500px;
+}
+
+.Element {
+    background-color: lightgray;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Overview {
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Button {
+    cursor: pointer;
+}

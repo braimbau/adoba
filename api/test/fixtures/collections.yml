@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: MyString
+  date: 2022-06-13
+  indicators: MyText
+
+two:
+  organization: MyString
+  date: 2022-06-13
+  indicators: MyText
