@@ -1,0 +1,67 @@
+.Card {
+    background-color: seagreen;
+    border-radius: 16px;
+    margin: 8px;
+    padding: 8px;
+    width: 500px;
+}
+
+.Field {
+    font-weight: bold;
+    background-color: lightgray;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.IndicatorOptions {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+}
+
+.IndicatorMandatory {
+    font-size: large;
+    margin-right: 16px;
+    color: red;
+    cursor: pointer;
+}
+
+.Red {
+    color: red;
+}
+
+.Grey {
+    color: grey;
+}
+
+.IndicatorDelete {
+    color: black;
+    cursor: pointer;
+}
+
+.IndicatorInput {
+    width: 35%;
+    border-radius: 4px;
+    border-width: 0;
+    background-color: white;
+    outline: none !important;
+}
+
+
+.IndicatorButton {
+    width: 10%;
+}
+
+.SubmitButton {
+    color: seagreen;
+    cursor: pointer;
+}
+
+.Invisible {
+    visibility: hidden;
+}
