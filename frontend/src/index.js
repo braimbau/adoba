@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
@@ -11,13 +10,15 @@ import {
 } from 'react-router-dom';
 import Manager from './manager/manager';
 import Shop from './shop/shop'
+import Header from './header';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className="frame">
+  <div className='Background'>
     <React.StrictMode>
       <BrowserRouter>
+        <Header></Header>
         <Routes>
           <Route path="shop" element={<Shop/>} />
           <Route path="manager" element={<Manager/>} />

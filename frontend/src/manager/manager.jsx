@@ -72,7 +72,7 @@ function Manager() {
   }
 
   return (
-    <div>
+    <div className="Frame">
       <div className="Card">
         <FixedField name={'name'}/>
         <FixedField name= {'date'}/>

@@ -1,9 +1,9 @@
-.frame {
+.Frame {
     width: 100vw;
-    height: 100vh;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .Card {
@@ -12,6 +12,7 @@
     margin: 8px;
     padding: 8px;
     width: 500px;
+    max-width: 50%;
 }
 
 .Field {

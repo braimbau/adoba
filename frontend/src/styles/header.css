@@ -1,0 +1,11 @@
+.HeaderRow {
+    color: white;
+    font-weight: bold;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Link {
+    padding: 8px;
+}

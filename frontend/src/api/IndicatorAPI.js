@@ -3,7 +3,7 @@
 function indicatorAPI() {
 
     const getIndicators = async () => {
-        const ret = await fetch("http://localhost:3456/indicators", {
+        const ret = await fetch("http://localhost:3501/indicators", {
             "method": "GET",
           })
           .then(response => {return response.json()})
@@ -13,7 +13,7 @@ function indicatorAPI() {
     }
 
     const createIndicator = async (data) => {
-        const ret = await fetch("http://localhost:3456/indicators", {
+        const ret = await fetch("http://localhost:3501/indicators", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -25,7 +25,7 @@ function indicatorAPI() {
     }
 
     const deleteIndicator = async (id) => {
-      const ret = await fetch(`http://localhost:3456/indicators/${id}`, {
+      const ret = await fetch(`http://localhost:3501/indicators/${id}`, {
           method: "DELETE",
         })
         .then(response => {return (response.ok ? null : response.statusText)})

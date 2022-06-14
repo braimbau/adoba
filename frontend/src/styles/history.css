@@ -4,6 +4,7 @@
     margin: 8px;
     padding: 8px;
     width: 500px;
+    max-width: 50%;
 }
 
 .Element {
@@ -25,4 +26,9 @@
 
 .Button {
     cursor: pointer;
+}
+
+.Title {
+    color: white;
+    font-weight: bold;
 }

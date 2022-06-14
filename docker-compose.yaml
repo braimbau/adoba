@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  # frontend
+    frontend:
+        build:
+          context: frontend
+          dockerfile: Dockerfile
+        container_name: frondoba
+        environment:
+          - TZ=Europe/Amsterdam
+        env_file:
+          - ./frontend/.env 
+        restart: unless-stopped
+        ports:
+          - 3500:3500

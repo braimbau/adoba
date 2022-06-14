@@ -1,3 +1,11 @@
+.Frame {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .Card {
     background-color: seagreen;
     border-radius: 16px;
@@ -45,7 +53,7 @@
 }
 
 .IndicatorInput {
-    width: 35%;
+    max-width: 35%;
     border-radius: 4px;
     border-width: 0;
     background-color: white;

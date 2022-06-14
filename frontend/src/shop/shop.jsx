@@ -15,6 +15,7 @@ function Shop() {
     const [date, setDate] = useState(new Date());
     const [organization, setOrganization] = useState('');
     const [indicators, setIndicators] = useState([]);
+    const [collections, setCollections] = useState(0);
 
     let map = new Map();
 
@@ -44,6 +45,7 @@ function Shop() {
             toast.error('An error occured')
         else
             reset();
+        setCollections(collections + 1)
     }
 
     const reset = () => {
@@ -85,7 +87,7 @@ function Shop() {
   }
 
     return (
-        <div>
+        <div className="Frame">
             <form className="Card" id="submit-form">
                 <div className="Field">
                     <input className="IndicatorInput" placeholder='Organization name' onChange={(e) => {setOrganization(e.target.value)}}></input>
@@ -101,7 +103,7 @@ function Shop() {
                     <div className="Button" onClick={onSubmit}>SEND</div>
                 </div>
             </form>
-            <History/>
+            <History key={collections} />
             <ToastContainer />
         </div>
     );

@@ -34,7 +34,7 @@ function HistoryElement(params) {
 function History() {
     const [collections, setCollections] = useState([]);
 
-    const getIndicators = async () => {
+    const getCollections = async () => {
         const collections = await CollectionAPI.getCollections();
         setCollections(collections);
     }
@@ -51,7 +51,7 @@ function History() {
 
     useEffect(() => {
         //mount
-        getIndicators();
+        getCollections();
         return () => {
             //unmount
         }
@@ -59,7 +59,7 @@ function History() {
 
     return (
         <div className="Card">
-            <div>History</div>
+            <div className="Title">History</div>
             {renderHistory(collections)}
         </div>
     )
