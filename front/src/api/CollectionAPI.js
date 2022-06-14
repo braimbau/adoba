@@ -18,7 +18,7 @@ function collectionAPI() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
           })
-          .then(response => {return response.json()})
+          .then(response => {if (response.ok) return null})
           .catch(err => { return err;
           });
         return ret;

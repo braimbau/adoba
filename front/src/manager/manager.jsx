@@ -7,6 +7,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FixedField from "./fixedField";
 import History from '../history'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Manager() {
   const [name, setName] = useState('');
@@ -19,10 +21,11 @@ function Manager() {
     const submitedStatus = await IndicatorAPI.createIndicator({name, unit, mandatory});
     if (submitedStatus) //if indicator can't be submeted
     {
-      const display = ['Cant be submited because : \n']
-      console.log(submitedStatus);
+      toast.error(`can't be submited because ${submitedStatus}`)
+      return;
     }
     getIndicators();
+    document.getElementById("create-form").reset();
   }
 
   const onDelete = async (id) => {
@@ -30,7 +33,7 @@ function Manager() {
     const deleteStatus = await IndicatorAPI.deleteIndicator(id);
     if (deleteStatus) //if indicator can't be deleted
     { 
-      console.log(`Can't delete indicator because : ${deleteStatus}`);
+      toast.error(`can't be deleted because ${deleteStatus}`)
       return;
     }
 
@@ -74,16 +77,17 @@ function Manager() {
         <FixedField name={'name'}/>
         <FixedField name= {'date'}/>
         {renderIndicators(indicators)}
-        <div className="Field">        
+        <form className="Field" id="create-form">        
           <input className="IndicatorInput" placeholder="name" onChange={(e) => {setName(e.target.value)}}></input>
           <input className="IndicatorInput" placeholder="unit" onChange={(e) => {setUnit(e.target.value)}}></input>
           <div className={`IndicatorMandatory ${(mandatory == true ? 'Red' : 'Grey')}`} onClick={() => {setMandatory(prev => !prev)}} >*</div>
           <div className="SubmitButton" onClick={onSubmit}>
             <AddCircleIcon></AddCircleIcon>
           </div>
-        </div>
+        </form>
       </div>
-      <History></History>
+      <History/>
+      <ToastContainer />
     </div>
   );
 }

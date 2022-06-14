@@ -18,7 +18,7 @@ function indicatorAPI() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
           })
-          .then(response => {return response.json()})
+          .then(response => {return (response.ok ? null : response.statusText)})
           .catch(err => { return err;
           });
         return ret;
