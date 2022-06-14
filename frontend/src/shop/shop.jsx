@@ -27,7 +27,6 @@ function Shop() {
                     check = false;
                 }
         });
-        console.log(`check = ${check}`)
         return check;
     }
 
