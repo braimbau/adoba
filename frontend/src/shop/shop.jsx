@@ -23,7 +23,7 @@ function Shop() {
         let check = true;
         mandatory.forEach(field => {
             if (field.mandatory)
-                if (!(present.has(field.name) && present.get(field.name).value != '')){
+                if (!(present.has(field.id) && present.get(field.id).value != '')){
                     check = false;
                 }
         });
@@ -31,14 +31,16 @@ function Shop() {
     }
 
     const onSubmit = async () => {
-        if (!checkMandatoryIndicators(indicators, map)) {
-            toast.error('You have to fill all mandatory fields (*)');
-            return;
-        }
+        // if (!checkMandatoryIndicators(indicators, map)) {
+        //     toast.error('You have to fill all mandatory fields (*)');
+        //     return;
+        // }
         const indicatorPresent = [];
-        map.forEach((indicator) => {
-            indicatorPresent.push(JSON.stringify(indicator));
+        map.forEach((value, key) => {
+            indicatorPresent.push({id: key, value});
         });
+        console.log('indicators:')
+        console.log(indicatorPresent)
         let status = await collectionAPI.createCollection({organization, date, indicators: indicatorPresent});
         if (status)
             toast.error('An error occured')
@@ -54,8 +56,8 @@ function Shop() {
         setDate(new Date());
     }
 
-    const onFieldChange = (name, value, unit) => {
-        map.set(name, {name, value, unit})
+    const onFieldChange = (id, value) => {
+        map.set(id, value);
     }
 
     const getIndicators = async () => {
@@ -75,7 +77,7 @@ function Shop() {
 		const listItems = list.map((indicator) =>
         <div className="Field" key={indicator.id}>
             <div className="ValueField">
-                <input className="IndicatorInput" placeholder={indicator.name} onChange={(e) => {onFieldChange(indicator.name, e.target.value, indicator.unit)}}></input>
+                <input className="IndicatorInput" placeholder={indicator.name} onChange={(e) => {onFieldChange(indicator.id, e.target.value)}}></input>
                 <div>{indicator.unit}</div>
             </div>
             <div className="IndicatorMandatory">{(indicator.mandatory) ? '*' : ''}</div>

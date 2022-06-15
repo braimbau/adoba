@@ -9,9 +9,7 @@ import './styles/history.css'
 
 function HistoryElement(params) {
     const [open, setOpen] = useState(false);
-    const indicators = params.element?.indicators.map(element => {
-        return JSON.parse(element)
-    });
+    const indicators = params.element?.collection_indicators;
     return (
         <div className="Element">
             <div className="Overview">
@@ -23,7 +21,7 @@ function HistoryElement(params) {
 
             <div>
             {open && indicators?.map((indicator) => {
-                return <div key={indicator.name}>{`${indicator.name}: ${indicator.value} ${indicator.unit ? indicator.unit : ''}`}</div>
+                return <div key={indicator.id}>{indicator.indicator_id}</div>
             })}
             </div>
         </div>

@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_13_134213) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_150520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collection_indicators", force: :cascade do |t|
+    t.bigint "indicator_id", null: false
+    t.string "value"
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_collection_indicators_on_collection_id"
+    t.index ["indicator_id"], name: "index_collection_indicators_on_indicator_id"
+  end
 
   create_table "collections", force: :cascade do |t|
     t.string "organization"
@@ -30,4 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_134213) do
     t.boolean "mandatory"
   end
 
+  add_foreign_key "collection_indicators", "collections"
+  add_foreign_key "collection_indicators", "indicators"
 end
